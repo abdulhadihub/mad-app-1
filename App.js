@@ -1,7 +1,7 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, TextInput } from 'react-native';
+import { StyleSheet, Text, View, Image, TextInput, TouchableOpacity } from 'react-native';
 import { Button } from 'react-native-web';
-// import styles from 'app.css'
+// import styles from 'styles.js'
 
 export default function App() {
   return (
@@ -18,12 +18,15 @@ export default function App() {
         <TextInput style={styles.usernameField} placeholder='Username' />
 
         <Text style={styles.userNameLabel}>Please Enter your Password:</Text>
-        <TextInput style={styles.usernameField} placeholder='Password' />
+        <TextInput secureTextEntry={true} style={styles.usernameField} placeholder='Password' />
 
       </View>
 
       <View style={styles.buttonsView}>
-        <Button style={styles.signUpBtn} title='Sign Up' />
+        <TouchableOpacity style={styles.signUpBtn}>
+
+          Sign Up
+        </TouchableOpacity>
       </View>
       <StatusBar style="auto" />
     </View>
@@ -69,7 +72,10 @@ const styles = StyleSheet.create({
     // backgroundColor: 'green',
   },
   signUpBtn: {
-    borderRadius: 100,
-
-  }
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 10,
+    color: 'white',
+    fontWeight: 'bold',
+  },
 });
