@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
   userNameLabel: {
     fontSize: 18,
     fontWeight: 'bold',
-    padding: 10,
+    paddingVertical: 10,
   },
   buttonsView: {
     flex: 0.3,
