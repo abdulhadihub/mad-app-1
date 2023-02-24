@@ -25,7 +25,8 @@ export default function App() {
       <View style={styles.buttonsView}>
         <TouchableOpacity style={styles.signUpBtn}>
 
-          Sign Up
+
+          <Text style={styles.btnText}>Sign Up</Text>
         </TouchableOpacity>
       </View>
       <StatusBar style="auto" />
@@ -61,6 +62,7 @@ const styles = StyleSheet.create({
     borderColor: 'black',
     borderWidth: 1,
     padding: 4,
+    borderRadius: 3,
   },
   userNameLabel: {
     fontSize: 18,
@@ -75,7 +77,10 @@ const styles = StyleSheet.create({
     backgroundColor: 'blue',
     padding: 10,
     borderRadius: 10,
-    color: 'white',
-    fontWeight: 'bold',
   },
+  btnText: {
+    color: 'white',
+    zIndex: 1,
+    fontWeight: 'bold',
+  }
 });
