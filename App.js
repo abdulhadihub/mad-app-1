@@ -56,7 +56,7 @@ const styles = StyleSheet.create({
   textfieldsView: {
     flex: 0.5,
     justifyContent: 'center',
-    // backgroundColor: 'blue',
+    // backgroundColor: 'yello',
   },
   usernameField: {
     borderColor: 'black',
