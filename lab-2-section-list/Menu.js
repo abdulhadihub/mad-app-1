@@ -6,11 +6,30 @@ import styles from './styles.js'
 
 export default function Menu() {
 
-    const [select, setSelect] = useState(false)
+    const [select, setSelect] = useState([])
+    const [active, setActive] = useState(false)
     const onSelect = (index) => {
-        console.log(index);
-        setSelect(!select);
+        if (select.includes(index)) {
+            delete select[index]
+            return null;
+        }
+        if (select.length === 0) {
+            setSelect([index]);
+            return;
+        }
+        setSelect([...select, index]);
+        return;
+
     }
+
+    const isActive = (index) => {
+        if (select.includes(index)) {
+            setActive(!active)
+        }
+    }
+
+
+
     const [data, setData] = useState(
         [
             {
@@ -22,19 +41,19 @@ export default function Menu() {
             {
                 key: 1,
                 title: 'Dessi Food',
-                data: [{ key: 0, title: 'Karahi' }, { key: 1, title: 'Kabab' }]
+                data: [{ key: 2, title: 'Karahi' }, { key: 3, title: 'Kabab' }]
             },
 
             {
                 key: 2,
                 title: 'Fast Food',
-                data: [{ key: 0, title: 'Burger' }, { key: 1, title: 'Pizza' }, { key: 2, title: 'Paasta' }, { key: 3, title: 'Shawarma' }]
+                data: [{ key: 4, title: 'Burger' }, { key: 5, title: 'Pizza' }, { key: 6, title: 'Paasta' }, { key: 7, title: 'Shawarma' }]
             },
 
             {
                 key: 3,
                 title: 'Drinks',
-                data: [{ key: 0, title: 'Coke' }, { key: 1, title: 'Fanta' }, { key: 2, title: 'Mint' }, { key: 3, title: 'Sprite' }]
+                data: [{ key: 8, title: 'Coke' }, { key: 9, title: 'Fanta' }, { key: 10, title: 'Mint' }, { key: 11, title: 'Sprite' }]
             },
 
         ])
@@ -54,8 +73,9 @@ export default function Menu() {
                 )}
 
                 renderItem={({ item }) => (
+
                     <View style={styles.itemView}>
-                        <TouchableOpacity key={item.key} style={select ? { backgroundColor: 'green' } : { backgroundColor: 'lightgrey' } + { color: 'white', fontSize: 22 }} onPress={() => onSelect(item.key)}>
+                        <TouchableOpacity key={item.key} style={isActive(item.key) ? styles.selectedItemText : styles.itemText} onPress={() => onSelect(item.key)}>
                             <Text  >{item.title}</Text>
                         </TouchableOpacity>
                     </View>

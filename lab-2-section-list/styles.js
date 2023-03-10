@@ -23,6 +23,12 @@ const styles = StyleSheet.create({
         fontSize: 18
     },
 
+    selectedItemText: {
+        backgroundColor: 'green',
+        color: 'white',
+        fontSize: 18
+    },
+
     sectionHeaderView: {
         flex: 1,
         height: 30,
