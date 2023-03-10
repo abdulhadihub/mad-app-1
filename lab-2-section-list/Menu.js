@@ -10,7 +10,7 @@ export default function Menu() {
     const [active, setActive] = useState(false)
     const onSelect = (index) => {
         if (select.includes(index)) {
-            delete select[index]
+            setSelect(select.filter((item) => item !== index));
             return null;
         }
         if (select.length === 0) {
@@ -24,7 +24,10 @@ export default function Menu() {
 
     const isActive = (index) => {
         if (select.includes(index)) {
-            setActive(!active)
+            return true;
+        }
+        else {
+            return false;
         }
     }
 
@@ -41,7 +44,7 @@ export default function Menu() {
             {
                 key: 1,
                 title: 'Dessi Food',
-                data: [{ key: 2, title: 'Karahi' }, { key: 3, title: 'Kabab' }]
+                data: [{ key: 12, title: 'Karahi' }, { key: 3, title: 'Kabab' }]
             },
 
             {
@@ -75,8 +78,8 @@ export default function Menu() {
                 renderItem={({ item }) => (
 
                     <View style={styles.itemView}>
-                        <TouchableOpacity key={item.key} style={isActive(item.key) ? styles.selectedItemText : styles.itemText} onPress={() => onSelect(item.key)}>
-                            <Text  >{item.title}</Text>
+                        <TouchableOpacity key={item.key} onPress={() => onSelect(item.key)}>
+                            <Text style={isActive(item.key) ? styles.selectedItemText : styles.itemText}  >{item.title}</Text>
                         </TouchableOpacity>
                     </View>
                 )}
