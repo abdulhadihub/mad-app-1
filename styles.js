@@ -48,7 +48,36 @@ const styles = StyleSheet.create({
         color: 'white',
         zIndex: 1,
         fontWeight: 'bold',
-    }
+    },
+    /////////////////////////////////////////////////////////////
+
+    mainView: {
+        flex: 1,
+        backgroundColor: 'yellow',
+    },
+
+    topView: {
+        flex: 0.2,
+        backgroundColor: 'red',
+    },
+
+    centerView: {
+        flex: 0.6,
+    },
+
+    bottomView: {
+        flex: 0.2,
+        backgroundColor: 'blue',
+    },
+
+    titleView: {
+        flex: 0.2,
+    },
+
+    priceView: {
+        flex: 0.2,
+    },
+
 });
 
 export default styles
